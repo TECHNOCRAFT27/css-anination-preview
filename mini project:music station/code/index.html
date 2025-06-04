@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CSS Animations - 3 Scenes</title>
+    <meta
+      name="description"
+      content="Animated web page with 3D rotation, horizontal and vertical sliding boxes using HTML and CSS. Includes code examples for learning."
+    />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Prism.js CSS for syntax highlighting -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+   
+    <div class="scene-wrapper">
+         <h2 class="section-title">CSS Animations</h2>
+      <div class="scene_01">
+        <div class="box"></div>
+      </div>
+
+      <h2 class="section-title">HTML Code Example</h2>
+      <div class="code-container">
+        <pre><code class="language-markup code-block">
+&lt;div class="scene_01"&gt;
+  &lt;div class="box"&gt;&lt;/div&gt;
+&lt;/div&gt;
+      </code></pre>
+      </div>
+      <h2 class="section-title">CSS Code Example</h2>
+      <div class="code-container">
+       
+        <pre><code class="language-css code-block">
+box {
+  height: 100px;
+  width: 100px;
+  background: linear-gradient(135deg, #e08104, #f11c00);
+  border-radius: 10%;
+  box-shadow: 0 10px 20px rgba(255, 100, 0, 0.3);
+  transition: transform 0.3s ease;
+ 
+}
+
+/* Scene 1 – Horizontal Animation */
+.scene_01 {
+  margin: 80px;
+  overflow: hidden;
+  display: flex;
+  background: linear-gradient(135deg, #000000, #292929);
+  padding: 20px;
+}
+
+.scene_01 .box {
+  animation: slideX 2s infinite alternate;
+}
+
+@keyframes slideX {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(600px);
+  }
+}
+
+      </code></pre>
+      </div>
+
+      <h2 class="section-title">Try It Yourself</h2>
+      <div class="editor-container">
+        <h2 class="section-title">html code</h2>
+        <textarea id="htmlCode" placeholder="Write HTML here...">
+&lt;h1&gt;Hello World&lt;/h1&gt;</textarea>
+        <h2 class="section-title">css code</h2>
+        <textarea id="cssCode" placeholder="Write CSS here...">
+h1 { color: red; }</textarea
+        >
+        <button id="runBtn">Run</button>
+         <h2 class="section-title">Output preview</h2>
+        <iframe id="preview"></iframe>
+      </div>
+    </div>
+
+    <!-- Prism.js Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
