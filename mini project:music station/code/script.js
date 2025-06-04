@@ -5,3 +5,4 @@ document.getElementById('runBtn').addEventListener('click', () => {
   const iframe = document.getElementById('preview');
   iframe.srcdoc = css + html;
 });
+
