@@ -112,3 +112,19 @@ iframe {
   background: rgb(255, 255, 255);
   border-radius: 6px;
 }
+@media (max-width: 900px) {
+ .box {
+  height: 50px;
+  width: 50px; 
+}
+
+
+@keyframes slideX {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(300px);
+  }
+}
+}
