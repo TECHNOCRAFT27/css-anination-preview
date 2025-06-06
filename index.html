@@ -33,44 +33,76 @@
       <h2 class="section-title">HTML Code Example</h2>
       <div class="code-container">
         <pre><code class="language-markup code-block">
-&lt;div class="scene_01"&gt;
-  &lt;div class="box"&gt;&lt;/div&gt;
+&lt;div class="box"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="face front"&gt; &lt;h1&gt;Front&lt;/h1&gt;&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="face back"&gt;back&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="face right"&gt;right&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="face left"&gt;left&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="face top"&gt;top&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="face bottom"&gt;bottom&lt;/div&gt;<br>
 &lt;/div&gt;
+
       </code></pre>
       </div>
       <h2 class="section-title">CSS Code Example</h2>
       <div class="code-container">
         <pre><code class="language-css code-block">
-box {
-  height: 100px;
-  width: 100px;
-  background: linear-gradient(135deg, #e08104, #f11c00);
+/* credate by technocraft27 */
+
+.box {
+  display: flex;
+  
   border-radius: 10%;
-  box-shadow: 0 10px 20px rgba(255, 100, 0, 0.3);
-  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+  animation: rotateCube 10s infinite linear;
+  width: 300px;
+  height: 300px;
+  position: relative;
+  justify-content: center;
+  align-items: center;
  
 }
 
-/* Scene 1 – Horizontal Animation */
 .scene_01 {
   margin: 80px;
+  height: 800px;
   overflow: hidden;
   display: flex;
   background: linear-gradient(135deg, #000000, #292929);
   padding: 20px;
+  justify-content: center;
+  align-items: center;
+  perspective: 800px;
+ 
 }
 
-.scene_01 .box {
-  animation: slideX 2s infinite alternate;
+.face {
+  position: absolute;
+  /* common size */
+  display: flex;
+  background-color: #073030;
+  width: 200px;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #310303;
+
+  
 }
 
-@keyframes slideX {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(600px);
-  }
+.front  { transform: rotateX(0deg) translateZ(100px); background-color: #ff3c00; }
+.back   { transform: rotateY(180deg) translateZ(100px); background-color: #07a5ee; }
+.right  { transform: rotateY(90deg) translateZ(100px); background-color: #00f56e; }
+.left   { transform: rotateY(-90deg) translateZ(100px); background-color: rgb(145, 41, 119); }
+.top    { transform: rotateX(90deg) translateZ(100px); background-color: crimson;}
+.bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+.box{transform: rotateX(0deg) rotatey(0deg) rotateZ(0deg)}
+
+
+@keyframes rotateCube {
+  from { transform: rotateX(0) rotateY(0) rotateZ(0deg) scaleX(0) scaleY(0) scaleZ(0) ; }
+  to   { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg) scaleX(2) scaleY(2) scaleZ(2);}
 }
 
       </code></pre>
