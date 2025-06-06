@@ -12,41 +12,69 @@ body {
 }
 
 .scene-wrapper {
-  perspective: 1000px;
+  perspective: 100px;
 }
 
-/* Box style */
+/* credate by technocraft27 */
+
 .box {
-  height: 100px;
-  width: 100px;
-  background: linear-gradient(135deg, #e08104, #f11c00);
+  display: flex;
+  
   border-radius: 10%;
-  box-shadow: 0 10px 20px rgba(255, 100, 0, 0.3);
-  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+  animation: rotateCube 10s infinite linear;
+  width: 300px;
+  height: 300px;
+  position: relative;
+  justify-content: center;
+  align-items: center;
  
 }
 
-/* Scene 1 – Horizontal Animation */
 .scene_01 {
   margin: 80px;
+  height: 800px;
   overflow: hidden;
   display: flex;
   background: linear-gradient(135deg, #000000, #292929);
   padding: 20px;
+  justify-content: center;
+  align-items: center;
+  perspective: 800px;
+ 
 }
 
-.scene_01 .box {
-  animation: slideX 2s infinite alternate;
+.face {
+  position: absolute;
+  /* common size */
+  display: flex;
+  background-color: #073030;
+  width: 200px;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #310303;
+
+  
 }
 
-@keyframes slideX {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(600px);
-  }
+.front  { transform: rotateX(0deg) translateZ(100px); background-color: #ff3c00; }
+.back   { transform: rotateY(180deg) translateZ(100px); background-color: #07a5ee; }
+.right  { transform: rotateY(90deg) translateZ(100px); background-color: #00f56e; }
+.left   { transform: rotateY(-90deg) translateZ(100px); background-color: rgb(145, 41, 119); }
+.top    { transform: rotateX(90deg) translateZ(100px); background-color: crimson;}
+.bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+.box{transform: rotateX(0deg) rotatey(0deg) rotateZ(0deg)}
+
+
+@keyframes rotateCube {
+  from { transform: rotateX(0) rotateY(0) rotateZ(0deg) scaleX(0) scaleY(0) scaleZ(0) ; }
+  to   { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg) scaleX(2) scaleY(2) scaleZ(2);}
 }
+
+
+
 
 /* Code UI Styling */
 .section-title {
@@ -112,19 +140,4 @@ iframe {
   background: rgb(255, 255, 255);
   border-radius: 6px;
 }
-@media (max-width: 900px) {
- .box {
-  height: 50px;
-  width: 50px; 
-}
 
-
-@keyframes slideX {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(300px);
-  }
-}
-}
